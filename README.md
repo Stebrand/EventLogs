@@ -8,7 +8,7 @@
 <img src="https://github.com/Stebrand/EventLogs/assets/107146329/90c44366-fcdd-4f9b-804a-6cf029a2347f" width="800" height="600"/>
 <br>
 <h2>Que se necesita para correr el proyecto</h2>
-<h3>Primero crea tu entorno virtual y luego instala todas las dependicias de python que estan el archivo requirements.txt con </h3>
+<h3>Primero crea tu entorno virtual y luego instala todas las dependicias de python que estan el archivo requirements.txt</h3>
 <p>pip install -r requirements.txt</p>
 <br>
 <h3>Ejecuta el entorno virtual e inicia la aplicacion de la API de Flask </h3>
