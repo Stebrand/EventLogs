@@ -1,0 +1,67 @@
+<div class="container mt-5">
+  <div class="row justify-content-center  mb-5">
+    <div class="col-md-8">
+      <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+        <div class="mb-3">
+          <label for="event_type" class="form-label">Tipo de evento</label>
+          <select class="form-select" id="event_type" formControlName="event_type"> 
+            <option value="" disabled selected>Selecciona un evento</option>                      
+            <option value="Api">Api</option>
+            <option value="Formulario">Formulario</option>          
+          </select>         
+        </div>      
+        <div class="mb-3">
+          <label for="description" class="form-label">Descripción</label>
+          <textarea class="form-control" id="description" rows="3" formControlName="description" placeholder="Ingrese la descripción del evento"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" [disabled]="eventForm.invalid">Registrar Evento</button>
+      </form>
+    </div>
+  </div>
+  <hr class="border border-dark border-1 opacity-55">
+  <div class="row justify-content-center mt-5">
+    <div class="col-md-8">
+      <div class="d-flex justify-content-between mb-3">
+        <!-- <div class="input-group "> -->
+          <div class="dropdown ">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ selectedEventType ? selectedEventType : 'Tipo de evento' }}
+            </button>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#" (click)="setSelectedEventType('')">Todos</a></li>
+                <li><a class="dropdown-item" href="#" (click)="setSelectedEventType('Api')">Api</a></li>
+                <li><a class="dropdown-item" href="#" (click)="setSelectedEventType('Formulario')">Formulario</a></li>
+              </ul>
+              <button class="btn btn-primary ms-3" (click)="filterByType()">Buscar</button>
+          </div>          
+        <!-- </div> -->
+
+        <div class="d-flex justify-content-between mb-3">
+          <div class="input-group">
+            <input type="date" class="form-control" id="start_date">
+            <input type="date" class="form-control" id="end_date">
+            <button class="btn btn-primary" (click)="filterByDate()">Filtrar por Fecha</button>
+          </div>
+        </div>
+      </div>
+      <div class="table-responsive">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th>Tipo</th>
+              <th>Fecha</th>
+              <th>Descripción</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let event of filteredEvents">
+              <td>{{ event.event_type }}</td>
+              <td>{{ event.event_date | date }}</td>
+              <td>{{ event.description }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
