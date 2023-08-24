@@ -19,7 +19,6 @@
 <p>npm install -g @angular/cli</p>
 <br>
 <h3>Por ultimo inicia el proyecto de angular</h3>
-<p>nodejs </p>
 <p>ng serve --o </p>
 
 
